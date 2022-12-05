@@ -27,7 +27,6 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.load('/models/presepio.glb', (gltf) => {
   title = gltf.scene.children.find((child) => child.name === 'title');
   title.material.side = THREE.DoubleSide;
-  console.log(title.material);
 
   const baseMesh = gltf.scene.children.find((child) => child.name === 'base');
   const cradleMesh = gltf.scene.children.find(
@@ -45,23 +44,23 @@ gltfLoader.load('/models/presepio.glb', (gltf) => {
   });
   scene.add(gltf.scene);
 
-  // scene.traverse((child) => {
-  //   if (
-  //     child instanceof THREE.Mesh &&
-  //     child.material instanceof THREE.MeshStandardMaterial
-  //   ) {
-  //     child.castShadow = true;
-  //     child.receiveShadow = true;
+  scene.traverse((child) => {
+    if (
+      child instanceof THREE.Mesh &&
+      child.material instanceof THREE.MeshStandardMaterial
+    ) {
+      // child.castShadow = true;
+      // child.receiveShadow = true;
 
-  //     if (child.material.map) {
-  //       child.material.map.minFilter = THREE.NearestFilter;
-  //       child.customDepthMaterial = new THREE.MeshDistanceMaterial({
-  //         map: child.material.map,
-  //         alphaTest: 0.75,
-  //       });
-  //     }
-  //   }
-  // });
+      if (child.material.map) {
+        child.material.map.minFilter = THREE.NearestFilter;
+        child.customDepthMaterial = new THREE.MeshDistanceMaterial({
+          map: child.material.map,
+          alphaTest: 0.75,
+        });
+      }
+    }
+  });
 });
 
 // Lights
