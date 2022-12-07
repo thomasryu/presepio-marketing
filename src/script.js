@@ -108,7 +108,7 @@ let cameraDistance = 0;
 const setCameraDistance = () => {
   const deviceCoeficient = Math.max(2, 2560 / sizes.width);
   const modifier = Math.min(12, deviceCoeficient * deviceCoeficient);
-  cameraDistance = 12 + modifier;
+  cameraDistance = 9 + modifier;
 };
 setCameraDistance();
 
@@ -118,7 +118,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100,
 );
-camera.position.set(8, 10, 8);
+camera.position.set(0, 8, 0);
 scene.add(camera);
 
 // Controls
