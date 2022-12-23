@@ -28,7 +28,9 @@ gltfLoader.load('/models/presepio.glb', (gltf) => {
   title = gltf.scene.children.find((child) => child.name === 'title');
   title.material.side = THREE.DoubleSide;
 
-  const baseMesh = gltf.scene.children.find((child) => child.name === 'base');
+  const baseMesh = gltf.scene.children.find(
+    (child) => child.name === 'prato-raso',
+  );
   const cradleMesh = gltf.scene.children.find(
     (child) => child.name === 'cradle',
   );
