@@ -120,7 +120,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100,
 );
-camera.position.set(0, 8, 0);
+camera.position.set(0, 6, 0);
 scene.add(camera);
 
 // Controls
@@ -247,7 +247,7 @@ const updateCamera = (elapsedTime) => {
   const x = Math.sin(elapsedTime * 0.5) * 0.1 + 0.5;
   camera.position.x = Math.sin(x) * cameraDistance;
   camera.position.z = Math.cos(x) * cameraDistance;
-  camera.lookAt(0, 4, 0);
+  camera.lookAt(0, 3, 0);
 };
 
 const tick = () => {
