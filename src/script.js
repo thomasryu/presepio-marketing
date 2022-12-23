@@ -91,6 +91,25 @@ const sizes = {
   height: window.innerHeight,
 };
 
+// Soundtrack
+const soundtrack = new Audio(`/sounds/christmas.mp3`);
+const toggleSoundtrack = () => {
+  soundtrack.volume = 0.03;
+  soundtrack.loop = true;
+
+  if (soundtrack.paused) {
+    soundtrack.play();
+  } else {
+    soundtrack.pause();
+  }
+};
+
+const button = document.querySelector('.music');
+button.addEventListener('click', () => {
+  toggleSoundtrack();
+  button.classList.toggle('playing');
+});
+
 window.addEventListener('resize', () => {
   // Update sizes
   sizes.width = window.innerWidth;

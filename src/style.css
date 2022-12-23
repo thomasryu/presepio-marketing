@@ -1,19 +1,51 @@
-*
-{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 html,
-body
-{
-    overflow: hidden;
+body {
+  overflow: hidden;
 }
 
-.webgl
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+.music {
+  font-size: 50px;
+
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  outline: none;
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+.music:hover {
+  transform: translateX(-50%) scale(0.95);
+}
+.music:active {
+  transform: translateX(-50%) scale(0.9);
+}
+
+.music.playing::after {
+  content: '🔊';
+}
+.music:not(.playing)::after {
+  content: '🔇';
 }
